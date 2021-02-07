@@ -19,7 +19,7 @@ service unattended-upgrades restart
 
 apt -y update
 apt -y full-upgrade
-
+apt -y install git
 apt -y install snapd
 snap install nvim --edge --classic
 snap install docker --edge
