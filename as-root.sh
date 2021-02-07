@@ -8,7 +8,7 @@ set -x
 
 echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 echo "AuthorizedKeysFile /root/.ssh/authorized_keys" >> /etc/ssh/sshd_config
-sed -ie 's/PermitRootLogin\syes/PermitRootLogin no/g'k /etc/ssh/sshd_config
+sed -ie 's/PermitRootLogin\syes/PermitRootLogin no/g' /etc/ssh/sshd_config
 chmod o+rx /root /root/.ssh /root/.ssh/authorized_keys
 service sshd restart
 
