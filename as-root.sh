@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "+ adding new user"
+useradd -ms /bin/bash -G sudo -p $(openssl passwd -1 $PASS) $LOGIN
+
 set -x
 
 echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
@@ -12,8 +15,6 @@ echo 'Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";' >> /etc/apt/apt
 echo 'Unattended-Upgrade::Remove-New-Unused-Dependencies "true";' >> /etc/apt/apt.conf.d/50unattended-upgrades-
 echo 'Unattended-Upgrade::Remove-Unused-Dependencies "true";' >> /etc/apt/apt.conf.d/50unattended-upgrades
 service unattended-upgrades restart
-
-set +x; useradd -ms /bin/bash -G sudo -p $(openssl passwd -1 $PASS) $LOGIN
 
 apt -y update
 apt -y full-upgrade
