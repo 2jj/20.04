@@ -1,5 +1,4 @@
 #!/bin/bash
-# curl https://raw.githubusercontent.com/2jj/20.04/main/as-user.sh | export bash -
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ]P && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
