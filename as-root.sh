@@ -18,13 +18,11 @@ echo 'Unattended-Upgrade::Remove-Unused-Dependencies "true";' >> /etc/apt/apt.co
 service unattended-upgrades restart
 
 apt -y update
-apt -y install tmux
-
-tmux
-
 apt -y full-upgrade
 apt -y install git
 apt -y install ripgrep
+apt -y install tmux
+
 apt -y install snapd
 snap install nvim --edge --classic
 snap install docker --edge
