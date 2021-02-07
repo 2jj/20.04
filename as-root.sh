@@ -1,5 +1,5 @@
 #!/bin/bash
-#  curl https://raw.githubusercontent.com/2jj/ubuntu/main/2004.sh | (export LOGIN=? PASS=?; bash -)
+#  curl https://raw.githubusercontent.com/2jj/20.04/main/as-root.sh | (export LOGIN=? PASS=?; bash -)
 
 echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 echo "AuthorizedKeysFile /root/.ssh/authorized_keys" >> /etc/ssh/sshd_config
