@@ -13,7 +13,7 @@ echo 'Unattended-Upgrade::Remove-New-Unused-Dependencies "true";' >> /etc/apt/ap
 echo 'Unattended-Upgrade::Remove-Unused-Dependencies "true";' >> /etc/apt/apt.conf.d/50unattended-upgrades
 service unattended-upgrades restart
 
-useradd -ms /bin/bash -G sudo -p $(openssl passwd -1 $PASS) $LOGIN
+set +x; useradd -ms /bin/bash -G sudo -p $(openssl passwd -1 $PASS) $LOGIN
 
 apt -y update
 apt -y full-upgrade
