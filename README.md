@@ -9,3 +9,5 @@
 4. Login as the non-root user, either via `su` or exit and `ssh ...`
 5. Run `tmux`, press `Alt-,`, then `I` to fetch all tmux plugins
 6. Run `nvim` and wait until coc.vim fetches all plugins
+
+🎁🎁🎁 Your machine is ready! 
