@@ -13,8 +13,8 @@ service unattended-upgrades restart
 
 useradd -ms /bin/bash -G sudo -p $(openssl passwd -1 $PASS) $LOGIN
 
-do-release-upgrade --mode=server
 apt update -y
+apt full-upgrade
 apt install snapd
 
 snap install nvim --edge --classic
