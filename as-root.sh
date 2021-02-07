@@ -20,11 +20,6 @@ service unattended-upgrades restart
 apt -y update
 apt -y full-upgrade
 
-apt install snapd
-snap install nvim --edge --classic
-snap install docker --edge
-snap install ripgrep --edge --classic
-
 su - $LOGIN
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
@@ -32,6 +27,11 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 set -x
+
+sudo apt install snapd
+sudo snap install nvim --edge --classic
+sudo snap install docker --edge
+sudo snap install ripgrep --edge --classic
 
 nvm install node
 
