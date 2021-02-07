@@ -1,4 +1,4 @@
-# Ubuntu 20.04.x Setup
+# Ubuntu 20.04 Setup
 
 First run following line with the prefixed space...
 ```
