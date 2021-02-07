@@ -22,18 +22,18 @@ apt -y full-upgrade
 
 su - $L
 
+echo "+ adding nvm and latest node..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+nvm install node
+
+set -x
 
 sudo apt install snapd
 sudo snap install nvim --edge --classic
 sudo snap install docker --edge
 sudo snap install ripgrep --edge --classic
-
-nvm install node
-
-set -x
 
 mkdir $HOME/.config
 git clone https://github.com/2jj/nvim.git $HOME/.config/nvim
