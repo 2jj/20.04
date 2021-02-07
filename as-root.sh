@@ -2,7 +2,7 @@
 
 echo "+ adding new user to sudo and docker groups"
 groupadd docker
-useradd -ms /bin/bash -G sudo docker -p $(openssl passwd -1 $PASS) $LOGIN
+useradd -ms /bin/bash -G sudo,docker -p $(openssl passwd -1 $PASS) $LOGIN
 
 set -x
 
