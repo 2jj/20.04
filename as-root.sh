@@ -2,7 +2,7 @@
 
 echo "+ adding new user to sudo and docker groups"
 groupadd -f docker
-useradd -ms /bin/bash -G sudo,docker -p $(openssl passwd -1 $PASS) $LOGIN
+useradd -ms /bin/bash -G sudo,docker -p $(openssl passwd -1 $P) $L
 
 set -x
 
@@ -20,13 +20,11 @@ service unattended-upgrades restart
 apt -y update
 apt -y full-upgrade
 
-su - $LOGIN
+su - $L
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-set -x
 
 sudo apt install snapd
 sudo snap install nvim --edge --classic
@@ -34,6 +32,8 @@ sudo snap install docker --edge
 sudo snap install ripgrep --edge --classic
 
 nvm install node
+
+set -x
 
 mkdir $HOME/.config
 git clone https://github.com/2jj/nvim.git $HOME/.config/nvim
