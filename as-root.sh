@@ -1,7 +1,8 @@
 #!/bin/bash
 
-echo "+ adding new user"
-useradd -ms /bin/bash -G sudo -p $(openssl passwd -1 $PASS) $LOGIN
+echo "+ adding new user to sudo and docker groups"
+groupadd docker
+useradd -ms /bin/bash -G sudo docker -p $(openssl passwd -1 $PASS) $LOGIN
 
 set -x
 
@@ -26,11 +27,12 @@ snap install ripgrep --edge --classic
 
 su - $LOGIN
 
-set -x
-
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+set -x
+
 nvm install node
 
 mkdir $HOME/.config
