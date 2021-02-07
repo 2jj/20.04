@@ -28,9 +28,10 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install node
 
+sudo -S $P apt install snapd
+
 set -x
 
-sudo apt install snapd
 sudo snap install nvim --edge --classic
 sudo snap install docker --edge
 sudo snap install ripgrep --edge --classic
