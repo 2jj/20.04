@@ -8,7 +8,7 @@ set -x
 
 echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 echo "AuthorizedKeysFile /root/.ssh/authorized_keys" >> /etc/ssh/sshd_config
-sed -ie 's/PermitRootLogin\syes/PermitRootLogin no/g' /etc/ssh/sshd_config
+sed -ie 's/PermitRootLogin\syes/PermitRootLogin no/g'k /etc/ssh/sshd_config
 chmod o+rx /root /root/.ssh /root/.ssh/authorized_keys
 service sshd restart
 
@@ -18,10 +18,13 @@ echo 'Unattended-Upgrade::Remove-Unused-Dependencies "true";' >> /etc/apt/apt.co
 service unattended-upgrades restart
 
 apt -y update
+apt -y install tmux
+
+tmux
+
 apt -y full-upgrade
 apt -y install git
 apt -y install ripgrep
-apt -y install tmux
 apt -y install snapd
 snap install nvim --edge --classic
 snap install docker --edge
