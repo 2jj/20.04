@@ -1,8 +1,8 @@
-### Ubuntu 20.04 Setup
+### Ubuntu 20.04 MVM
 
-1. Copy following curl command incl. the prefixed space
-2. Paste it to bash as root user
-3. Replace both questions marks with the to be created user's login and their sudo password, press Enter
+1. Copy following curl incl. the prefixed space
+2. Paste it to Bash as root
+3. Replace both `X` with a non-root login name and its sudo password, press Enter
 ```
- curl https://raw.githubusercontent.com/2jj/20.04/main/as-root.sh | (export L=? P=?; bash -)
+ curl https://raw.githubusercontent.com/2jj/20.04/main/run.sh | (export L=X P=X; bash -)
 ```
