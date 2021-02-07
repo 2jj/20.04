@@ -1,4 +1,4 @@
-# Ubuntu 20.04 Setup
+### Ubuntu 20.04 Setup
 
 1. Copy following curl command incl. the prefixed space
 2. Paste it to bash as root user
