@@ -20,7 +20,7 @@ service unattended-upgrades restart
 apt -y update
 apt -y full-upgrade
 
-apt install snapd
+apt -y install snapd
 snap install nvim --edge --classic
 snap install docker --edge
 snap install ripgrep --edge --classic
