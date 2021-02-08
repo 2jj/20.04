@@ -45,3 +45,5 @@ ln -sf $HOME/.config/nvim/.eslintrc.yml $HOME/.eslintrc.yml
 ln -sf $HOME/.config/nvim/.prettierrc.yml $HOME/.prettierrc.yml
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 nvim +PlugInstall +qall --headless
+
+echo "set -o vi" >> $HOME/.profile
