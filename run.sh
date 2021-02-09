@@ -1,22 +1,26 @@
 #!/bin/bash
 
+# Setup user
 echo "+ adding new user to sudo and docker groups"
 groupadd -f docker
 useradd -ms /bin/bash -G sudo,docker -p $(openssl passwd -1 $P) $L
 
 set -x
 
+# Setup ssh
 echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 echo "AuthorizedKeysFile /root/.ssh/authorized_keys" >> /etc/ssh/sshd_config
 sed -ie 's/PermitRootLogin\syes/PermitRootLogin no/g' /etc/ssh/sshd_config
 chmod o+rx /root /root/.ssh /root/.ssh/authorized_keys
 service sshd restart
 
+# Setup unattended-upgrade
 echo 'Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";' >> /etc/apt/apt.conf.d/50unattended-upgrades
 echo 'Unattended-Upgrade::Remove-New-Unused-Dependencies "true";' >> /etc/apt/apt.conf.d/50unattended-upgrades-
 echo 'Unattended-Upgrade::Remove-Unused-Dependencies "true";' >> /etc/apt/apt.conf.d/50unattended-upgrades
 service unattended-upgrades restart
 
+# Setup apps
 apt -y update
 apt -y full-upgrade
 apt -y install git
@@ -28,6 +32,7 @@ apt -y install snapd
 snap install nvim --edge --classic
 snap install docker --edge
 
+# Switch to non-root user
 su - $L
 
 echo "+ adding nvm and latest node..."
@@ -38,6 +43,7 @@ nvm install node
 
 set -x
 
+# Config apps
 mkdir $HOME/.config
 git clone https://github.com/2jj/nvim.git $HOME/.config/nvim
 ln -sf $HOME/.config/nvim/.bash_aliases $HOME/.bash_aliases
