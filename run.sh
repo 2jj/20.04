@@ -22,7 +22,7 @@ echo 'Unattended-Upgrade::Remove-Unused-Dependencies "true";' >> /etc/apt/apt.co
 service unattended-upgrades restart
 
 # Increase file watchers
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf
 sysctl -p
 
 sysctl -p
