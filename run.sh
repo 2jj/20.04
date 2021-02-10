@@ -5,6 +5,7 @@ echo "+ adding new user to sudo and docker groups"
 groupadd -f docker
 useradd -ms /bin/bash -G sudo,docker -p $(openssl passwd -1 $P) $L
 
+# Log commands
 set -x
 
 # Setup ssh
@@ -19,6 +20,12 @@ echo 'Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";' >> /etc/apt/apt
 echo 'Unattended-Upgrade::Remove-New-Unused-Dependencies "true";' >> /etc/apt/apt.conf.d/50unattended-upgrades-
 echo 'Unattended-Upgrade::Remove-Unused-Dependencies "true";' >> /etc/apt/apt.conf.d/50unattended-upgrades
 service unattended-upgrades restart
+
+# Increase file watchers
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+sysctl -p
+
+sysctl -p
 
 # Setup apps
 apt -y update
@@ -41,6 +48,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install node
 
+# Log commands
 set -x
 
 # Config apps
