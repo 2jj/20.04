@@ -33,6 +33,7 @@ apt -y full-upgrade
 apt -y install git
 apt -y install ripgrep
 apt -y install tmux
+apt -y install ranger
 apt -y install python3-venv
 
 apt -y install snapd
