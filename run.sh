@@ -34,6 +34,7 @@ apt -y install git
 apt -y install ripgrep
 apt -y install tmux
 apt -y install python3-venv
+apy -y install ranger
 
 apt -y install snapd
 snap install nvim --edge --classic
@@ -58,6 +59,6 @@ ln -sf $HOME/.config/nvim/.tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/.config/nvim/.eslintrc.yml $HOME/.eslintrc.yml
 ln -sf $HOME/.config/nvim/.prettierrc.yml $HOME/.prettierrc.yml
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-nvim +PlugInstall +qall --headless
-
 echo "set -o vi" >> $HOME/.profile
+nvim +PlugInstall +qall --headless
+ranger --copy-config=all
