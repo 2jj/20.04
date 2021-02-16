@@ -37,7 +37,6 @@ apt -y install python3-venv
 
 apt -y install snapd
 snap install nvim --edge --classic
-snap install docker --edge
 
 # Switch to non-root user
 su - $L
