@@ -1,6 +1,6 @@
 ### Ubuntu 20.04 MVM
 
-0. **Setup the server and before continuing test the ping!**
+0. **Setup the server and before moving on test the ping!**
 1. Copy following curl incl. the prefixed space
 ```
  curl https://raw.githubusercontent.com/2jj/20.04/main/run.sh | (export L=X P=X; bash -)
