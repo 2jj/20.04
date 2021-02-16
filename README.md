@@ -11,8 +11,8 @@
 6. Run `nvim` and wait until coc.vim fetches all its plugins
 
 Install `docker` and `docker-machine` with dedicated script or manually, since installing them via snap doesn't work (docker-machine does not find machines):
-https://docs.docker.com/engine/install/ubuntu/
-https://docs.docker.com/machine/install-machine/
+- https://docs.docker.com/engine/install/ubuntu/
+- https://docs.docker.com/machine/install-machine/
 
 FYI, Installing node via snap doesn't work either (coc.vim doesn't find node then)
 
