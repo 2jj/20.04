@@ -49,12 +49,12 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install node
 
+# Log commands
+set -x
+
 # npm-based apps
 npm install -g fd-find
 npm install -g nodemon
-
-# Log commands
-set -x
 
 # Config apps
 mkdir $HOME/.config
