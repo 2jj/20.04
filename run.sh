@@ -35,6 +35,7 @@ apt -y install ripgrep
 apt -y install tmux
 apt -y install python3-venv
 apt -y install ranger
+apt -y install fd-find
 
 apt -y install snapd
 snap install nvim --edge --classic
@@ -53,8 +54,11 @@ nvm install node
 set -x
 
 # npm-based apps
-npm install -g fd-find
 npm install -g nodemon
+
+# Config fd
+mkdir -p $HOME/.local/bin
+ln -s $(which fdfind) ~/.local/bin/fd
 
 # Config apps
 mkdir $HOME/.config
