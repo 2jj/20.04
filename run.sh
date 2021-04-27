@@ -34,7 +34,6 @@ apt -y install git
 apt -y install ripgrep
 apt -y install tmux
 apt -y install python3-venv
-apt -y install ranger
 apt -y install fd-find
 
 apt -y install snapd
