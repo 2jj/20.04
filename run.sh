@@ -29,7 +29,6 @@ sysctl -p
 
 # Setup apps
 apt -y update
-apt -y full-upgrade
 apt -y install git
 apt -y install ripgrep
 apt -y install tmux
