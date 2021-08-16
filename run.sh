@@ -32,40 +32,39 @@ apt -y update
 apt -y install git
 apt -y install ripgrep
 apt -y install tmux
-apt -y install python3-venv
+# apt -y install python3-venv
 apt -y install fd-find
 
-apt -y install snapd
-snap install nvim --edge --classic
+# apt -y install snapd
+# snap install nvim --edge --classic
 
 # Switch to non-root user
 su - $L
 
 # node
-echo "+ adding nvm and latest node..."
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-nvm install node
+# echo "+ adding nvm and latest node..."
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# nvm install node
 
 # Log commands
 set -x
 
 # npm-based apps
-npm install -g nodemon
+# npm install -g nodemon
 
 # Config fd
 mkdir -p $HOME/.local/bin
 ln -s $(which fdfind) ~/.local/bin/fd
 
 # Config apps
-mkdir $HOME/.config
-git clone https://github.com/2jj/nvim.git $HOME/.config/nvim
-ln -sf $HOME/.config/nvim/.bash_aliases $HOME/.bash_aliases
-ln -sf $HOME/.config/nvim/.tmux.conf $HOME/.tmux.conf
-ln -sf $HOME/.config/nvim/.eslintrc.yml $HOME/.eslintrc.yml
-ln -sf $HOME/.config/nvim/.prettierrc.yml $HOME/.prettierrc.yml
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# mkdir $HOME/.config
+# git clone https://github.com/2jj/nvim.git $HOME/.config/nvim
+# ln -sf $HOME/.config/nvim/.bash_aliases $HOME/.bash_aliases
+# ln -sf $HOME/.config/nvim/.tmux.conf $HOME/.tmux.conf
+# ln -sf $HOME/.config/nvim/.eslintrc.yml $HOME/.eslintrc.yml
+# ln -sf $HOME/.config/nvim/.prettierrc.yml $HOME/.prettierrc.yml
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo "set -o vi" >> $HOME/.profile
-nvim +PlugInstall +qall --headless
-ranger --copy-config=all
+# nvim +PlugInstall +qall --headless
